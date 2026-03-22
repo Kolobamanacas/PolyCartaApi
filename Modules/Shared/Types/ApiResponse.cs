@@ -1,20 +1,20 @@
-namespace modules.Shared.Types;
+namespace PolyCartaApi.Modules.Shared.Types;
 
-public class ApiResponsePayload<DataType>()
+internal static class ApiResponse
 {
-    public ApiResponseCode Code { get; set; }
-    public string? Message { get; set; }
-    public DataType? Data { get; set; }
-}
-
-public static class ApiResponse
-{
-    public static IResult Ok<DataType>(DataType? data)
+    public static IResult Ok<TResponse>(TResponse? data)
     {
-        return Results.Ok(new ApiResponsePayload<DataType>
+        return Results.Ok(new ApiResponsePayload<TResponse>
         {
             Code = ApiResponseCode.Ok,
             Data = data,
         });
     }
+}
+
+internal sealed class ApiResponsePayload<TResponse>()
+{
+    public ApiResponseCode Code { get; set; }
+    public string? Message { get; set; }
+    public TResponse? Data { get; set; }
 }

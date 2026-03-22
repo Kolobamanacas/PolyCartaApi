@@ -1,12 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
 using PolyCartaApi.Modules.Shared.Configurations.Database;
 
 namespace PolyCartaApi.Modules.Words.Entities;
 
 [DataBaseTable("words")]
-public class Word
+internal sealed class Word
 {
     [Column("id")]
     public long Id { get; set; }

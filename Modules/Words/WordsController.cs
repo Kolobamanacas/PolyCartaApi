@@ -1,10 +1,10 @@
-using modules.Shared.Types;
+using PolyCartaApi.Modules.Shared.Types;
 
 namespace PolyCartaApi.Modules.Words;
 
-public static class WordsController
+internal static class WordsController
 {
-    private static readonly string ModulePath = "/api/v1/words";
+    private const string ModulePath = "/api/v1/words";
 
     public static void MapWords(this IEndpointRouteBuilder app)
     {

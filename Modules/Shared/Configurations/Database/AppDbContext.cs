@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PolyCartaApi.Modules.Shared.Configurations.Database;
 
-public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
+internal sealed class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -13,11 +13,12 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
 
         foreach (var type in entityTypes)
         {
-            string? tableName = type.GetCustomAttribute<DataBaseTableAttribute>()?.TableName;
+            var tableName = type.GetCustomAttribute<DataBaseTableAttribute>()?.TableName;
 
             if (tableName == null)
             {
-                throw new Exception($"Table name is not specified for the type {type.FullName}.");
+                throw new ArgumentNullException(
+                    $"Table name is not specified for the type {type.FullName}.");
             }
 
             modelBuilder.Entity(type).ToTable(tableName);

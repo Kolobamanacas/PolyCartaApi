@@ -1,9 +1,9 @@
 using System.Text.Json.Serialization;
 
-namespace modules.Shared.Types;
+namespace PolyCartaApi.Modules.Shared.Types;
 
 [JsonConverter(typeof(JsonStringEnumConverter))]
-public enum ApiResponseCode
+internal enum ApiResponseCode
 {
     Ok,
     BadRequest,
