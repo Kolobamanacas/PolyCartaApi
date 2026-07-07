@@ -25,7 +25,6 @@ dotnet_diagnostic.IDE0270.severity = none
 # Disable .Net style rules.
 dotnet_diagnostic.CA1812.severity = none
 
-
 # Disable StyleCop rules.
 dotnet_diagnostic.SA0001.severity = none
 dotnet_diagnostic.SA0160.severity = none

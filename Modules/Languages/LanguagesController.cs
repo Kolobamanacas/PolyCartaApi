@@ -1,14 +1,14 @@
 using PolyCartaApi.Modules.Shared.Configurations.Routing;
 using PolyCartaApi.Modules.Shared.Types;
 
-namespace PolyCartaApi.Modules.Words;
+namespace PolyCartaApi.Modules.Languages;
 
 [Controller]
-internal static class WordsController
+internal static class LanguagesController
 {
-    private const string ModulePath = "/api/v1/words";
+    private const string ModulePath = "/api/v1/languages";
 
-    public static void MapWords(this IEndpointRouteBuilder app)
+    public static void MapLanguages(this IEndpointRouteBuilder app)
     {
         app.MapPost($"{ModulePath}/add", () =>
         {
